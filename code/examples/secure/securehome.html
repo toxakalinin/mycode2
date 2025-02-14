@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление сервером</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+    <style>
+        /* General reset and font styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 10px;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #333;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: #bbbbbb;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #a6a6a6;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #bbbbbb;
+            margin-bottom: 15px;
+        }
+
+        .card .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 14px;
+            text-align: center;
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .card .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #a6a6a6;
+        }
+
+        .stat p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        /* Logs Table */
+        #logs-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        #logs-table thead th {
+            text-align: left;
+            padding: 10px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #logs-table thead th:hover {
+            background-color: #333333;
+        }
+
+        #logs-table tbody td {
+            padding: 10px;
+            background-color: #1c1c1c;
+            color: #ffffff;
+        }
+
+        #logs-table tbody tr:nth-child(even) {
+            background-color: #1a1a1a;
+        }
+
+        /* Popup Menu */
+        .bottom-menu {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .bottom-menu-item {
+            background-color: #007bff;
+            border-radius: 50%;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bottom-menu-item img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .bottom-menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        .popup-menu {
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .popup-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .popup-menu ul li {
+            margin: 10px 0;
+        }
+
+        .popup-menu ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .popup-menu ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .close-button {
+            display: block;
+            text-align: right;
+            font-size: 14px;
+            color: #bbbbbb;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Управление сервером</h1>
+        <p>Доступ ко всем инструментам и мониторингу.</p>
+    </header>
+
+    <main>
+        <section id="tools">
+            <h2>Быстрые инструменты</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Меню инструментов</h3>
+                    <p>Все настройки в одном месте.</p>
+                    <a href="/secure/toolsmenu.html" class="btn">Перейти</a>
+                </div>
+                <div class="card">
+                    <h3>Сканирование</h3>
+                    <p>Perform network and vulnerability scans.</p>
+                    <a href="/secure/scantools.html" class="btn">Go</a>
+                </div>
+                <div class="card">
+                    <h3>Веб-фичи</h3>
+                    <p>Web-based utilities for testing and debugging.</p>
+                    <a href="/secure/webtools.html" class="btn">Go</a>
+                </div>
+                <div class="card">
+                    <h3>FirewallBuilder</h3>
+                    <p>Design and deploy custom firewall rules.</p>
+                    <a href="/secure/firewallbuilder.html" class="btn">Go</a>
+                </div>
+                <div class="card">
+                    <h3>Integration via telegram</h3>
+                    <p>Monitor your infrastructure via Telegram bots.</p>
+                    <a href="/secure/botmenu.html" class="btn">Go</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="logs-stats">
+            <h2>Logs and Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <h3>Total Firewall Rules</h3>
+                    <p id="rule-count">Fetching...</p>
+                </div>
+                <div class="stat">
+                    <h3>Total Logs</h3>
+                    <p id="log-count">Fetching...</p>
+                </div>
+                <div class="stat">
+                    <h3>Server Uptime</h3>
+                    <p id="server-uptime">Fetching...</p>
+                </div>
+                <div class="stat">
+                    <h3>Active Users</h3>
+                    <p id="active-users">Fetching...</p>
+                </div>
+            </div>
+            <table id="logs-table">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Timestamp</th>
+                        <th onclick="sortTable(1)">IP Address</th>
+                        <th onclick="sortTable(2)">Action</th>
+                        <th onclick="sortTable(3)">User Agent</th>
+                        <th onclick="sortTable(4)">Geo Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamically populated rows -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Admin Dashboard. Все права защищены.</p>
+    </footer>
+
+    <div class="bottom-menu">
+        <a href="#" class="bottom-menu-item" id="menu-button">
+            <img src="/static/images/5.png" alt="Menu Icon">
+        </a>
+    </div>
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-menu" id="popup-menu">
+            <button id="close-button" class="close-button">Закрыть</button>
+            <ul>
+                <li><a href="/secure/toolsmenu.html">Инструменты</a></li>
+                <li><a href="/secure/scantools.html">Сканировать...</a></li>
+                <li><a href="/secure/webtools.html">Веб-функции</a></li>
+                <li><a href="/secure/clientside4.html">Статистика</a></li>
+                <li><a href="/secure/firewallbuilder.html/#add-rule-form">Добавить правило</a></li>
+                <li><a href="/">Выход</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const menuButton = document.getElementById('menu-button');
+        const menuOverlay = document.getElementById('popup-overlay');
+        const closeButton = document.getElementById('close-button');
+
+        // Open the menu
+        menuButton.addEventListener('click', () => {
+            menuOverlay.classList.add('active');
+        });
+
+        // Close the menu when clicking the "Close" button
+        closeButton.addEventListener('click', () => {
+            menuOverlay.classList.remove('active');
+        });
+
+        // Close the menu when clicking outside the popup
+        menuOverlay.addEventListener('click', (e) => {
+            if (e.target === menuOverlay) {
+                menuOverlay.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

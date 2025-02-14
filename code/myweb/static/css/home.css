@@ -1,0 +1,397 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    background: linear-gradient(120deg, #16171d, #09234e, #010409);
+    background-size: auto;
+    animation: backgroundAnimation 10s ease infinite;
+    color: #efeff0;
+    line-height:1.5;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: Cantarell, sans-serif;
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+    justify-content: space-around;
+    min-width: 320px;
+    font-size: 16px;
+
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+ 
+    50% {
+        background-position: 100% 50%;
+    }
+ 
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+:root {
+  --bg-color: #13182b;
+  --text-color: #fff;
+  --section-bg: rgba(255, 255, 255, 0.1);
+  --button-bg: #3b5998;
+  --button-hover: #5a78b0;
+  --button-active: #e74c3c;
+}
+
+[data-theme="light"] {
+  --bg-color: #f5f5f5;
+  --text-color: #000;
+  --section-bg: #ddd;
+  --button-bg: #3498db;
+  --button-hover: #5dade2;
+  --button-active: #2ecc71;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+header h1 {
+  background-color: #16171d;
+  
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* Button Group */
+button {
+  text-align: center;
+  justify-content: center;
+  margin: 20px;
+  border: none;
+  color: #ffffff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 5px 5px 5px 5px rgba(0.3, 0.3, 0.3, 0.3);                                           
+  background-color: #111135;                                                                          
+  transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s;                     
+}
+
+button button:hover {
+    background-color: #101031;                                                                          
+    transform: translateY(-5px);                                                                        
+    box-shadow: 10px 10px 10px 10px rgba(0.5, 0.5, 0.5, 0.5);                                           
+}
+
+button .active {
+  background: var(--button-active);
+}
+
+.resource-links a {
+  text-decoration: none;
+  color: var(--button-bg);
+  margin: 10px 0;
+  transition: color 0.3s;
+}
+
+.resource-links a:hover {
+  color: var(--button-hover);
+}
+
+/* Footer Section */
+footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+/* Toggle Button */
+.toggle-theme {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  background: var(--button-bg);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle-theme:hover {
+  background: var(--button-hover);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .button-group {
+    align-items: center;
+  }
+
+  .section {
+    text-align: center;
+  }
+}
+
+nav ul.menu {                                                                                           
+    justify-content: center;                                                                            
+    gap: 20px;                                                                                          
+    list-style: none;
+    margin: 30px;                                                                                   
+}                                                                                                       
+                                                                                                        
+nav ul.menu li {                                                                                        
+    flex: 1;
+    margin: 10px;
+}                                                                                                       
+                                                                                                        
+nav ul.menu li a {                                                                                      
+    color: #fff;                                                                                        
+    box-shadow: 5px 5px 5px 5px rgba(0.3, 0.3, 0.3, 0.3);                                           
+    font-weight: bold;                                                                                  
+    text-decoration: none;                                                                              
+    padding: 10px 15px;                                                                                 
+    border-radius: 8px;                                                                                 
+    background-color: #111135;                                                                          
+    transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s;                     
+    display: block;                                                                                     
+    text-align: center;
+    margin: 10px;                                                                                 
+}                                                                                                       
+                                                                                                        
+nav ul.menu li a:hover {                                                                                
+    background-color: #000085;                                                                          
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 5px 5px rgba(0.5, 0.5, 0.5, 0.5);
+}                                                                                                       
+
+section {
+    justify-content: center;                                                                      
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    background-color: #010409;
+}
+
+section h2, section h3 {
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    justify-content: center;
+    background-color: #1e1e2e;
+}
+
+section p {
+    color: #cccccc;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+section h2, section h3 .button {
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+  border: none;
+  color: #ffffff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  background-color: #1e1e2e;
+  transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s;                     
+}
+
+button button:hover {
+    background-color: #101031;                                                                          
+    transform: translateY(-5px);                                                                        
+    box-shadow: 10px 10px 10px 10px rgba(0.5, 0.5, 0.5, 0.5);                                           
+}
+
+.bottom-menu {
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            opacity: 0.3;
+            width: 100%;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+.bottom-menu-item {
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            width: 70px;
+            margin-bottom: 0;
+            bottom: 0;
+}
+
+.bottom-menu-item span {
+            font-size: 3vw;
+            display: block;
+}
+
+.bottom-menu-item img {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 5px;
+    bottom: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.bottom-menu-item img:hover {
+  transform: translateY(-20px) scale(1.1);
+  opacity: 1;
+
+}
+
+.bottom-menu-item {
+  align-items: center;
+  text-decoration: none;
+}
+.bottom-menu {
+  text-align: center;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 2000;
+}
+
+/* Active Overlay */
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Popup Menu */
+.popup-menu {
+  position: absolute;
+  bottom: 70px; /* Appears just above the bottom menu */
+  left: 50%;
+  transform: translateX(-50%) scale(0.8); /* Hidden at first */
+  width: 90%;
+  max-width: 400px;
+  background: #09234e;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+/* Active Popup Menu */
+.popup-overlay.active .popup-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) scale(1); /* Expand with a bounce effect */
+  animation: bounceIn 0.4s ease; /* Add bounce animation */
+}
+
+/* Menu Items */
+.popup-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.popup-menu ul li {
+  margin: 15px 0;
+  text-align: center;
+  animation: slideUp 0.5s ease forwards;
+}
+
+.popup-menu ul li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.popup-menu ul li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.popup-menu ul li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.popup-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.popup-menu ul li a:hover {
+  color: #f39c12;
+}
+
+/* Keyframe Animations */
+
+/* Bounce Effect */
+@keyframes bounceIn {
+  0% {
+    transform: translateX(-50%) scale(0.8);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* Slide-Up Animation for Menu Items */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.close-button {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.close-button:hover {
+  background-color: #5751d1;
+}

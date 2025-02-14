@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Kalinux Development</title>
+    
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/png" href="/static/images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="./kalinux.dev">
+    <link rel="manifest" href="/static/images/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container" id="app">
+        <header>
+            <div>
+                <h2><img src="{{ url_for('static', filename='images/logotip.png') }}" alt="Kalinux Logo" class="preloader-logo"></h2>
+            </div>
+            <div class="header-container">
+              <h1>Home | Kalinux Development</h1>
+            </div>   
+        </header>
+
+        <div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="https://github.com/toxakalinin/">🛡 GitHub</a></li>
+                    <li><a href="/projects">🔥 Проекты</a></li>
+                </ul>
+            </nav>
+            </div>
+            <div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="/about">📚 О странице</a></li>
+                    <li><a href="/social">📊 Социальные сети</a></li>
+                </ul>
+            </nav>
+            </div>
+
+        <main>
+    <section class="projects">
+        <div class="container">
+            <h2>Добро пожаловать | Welcome </h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                         <p> На данной странице вы можете ознакомиться с моим портфолио, посмотреть осуществленные и текущие проекты, подписаться на соцсети, заказать услуги или принять участие в разработке путем контрибуции на Github.</p>
+                    </div>
+                </div>                     
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="/static/images/github.png" alt="DEVELOPMENT">
+                    <h3>Github | Kalinux Developments</h3>
+                    <p>Просмотреть исходный код, внести вклад в разработку, предложить или улучшить фичу.</p>
+                    <a href="https://github.com/toxakalinin" target="_blank">Подробнее →</a>
+                </div>
+
+                <div class="project-card">
+                    <img src="/static/images/social.png" alt="SOCIAL">
+                    <h3>Social | Kalinux Development</h3>
+                    <p>Подписаться на социальные сети, или способы, доступные для связи/заказа услуг</p>
+                    <a href="/social" target="_blank">Подробнее →</a>
+                </div>
+
+                <div class="project-card">
+                    <img src="/static/images/about.png" alt="ABOUT">
+                    <h3>About | Kalinux Development</h3>
+                    <p>Общая информация о проекте. Цели, приоритеты, принципы при разработке. Компетенция. Опыт.</p>
+                    <a href="/about" target="_blank">Подробнее →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Kalinux Development </p>
+  </footer> 
+<div class="bottom-menu">
+      <a href="#" class="bottom-menu-item" id="menu-button">
+         <img src="/static/images/5.png" alt="Menu Icon">
+</a>
+</div>
+<div class="popup-overlay" id="popup-overlay">
+<div class="popup-menu" id="popup-menu">
+  <button id="close-button" class="close-button">Закрыть</button> 
+  <ul>
+    <li><a href="/home">На Главную</a></li>
+     <li><a href="/about">О странице</a></li>
+     <li><a href="/social">Социальные сети</a></li>
+     <li><a href="/contactus">Контакты</a></li>
+     <li><a href="/projects">Проекты</a></li>
+   </ul>
+</div>
+<script>
+const menuButton = document.getElementById('menu-button');
+const menuOverlay = document.getElementById('popup-overlay');
+const closeButton = document.getElementById('close-button');
+
+// Open the menu
+menuButton.addEventListener('click', () => {
+menuOverlay.classList.add('active'); // Show the popup
+});
+
+// Close the menu when clicking the "Close" button
+closeButton.addEventListener('click', () => {
+menuOverlay.classList.remove('active'); // Hide the popup
+});
+
+// Close the menu when clicking outside the popup
+menuOverlay.addEventListener('click', (e) => {
+if (e.target === menuOverlay) {
+  menuOverlay.classList.remove('active'); // Hide the popup
+}
+});
+</script>
+</div>
+</body>
+</html>

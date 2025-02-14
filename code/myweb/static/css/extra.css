@@ -1,0 +1,121 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-bg: #09234e;
+  --secondary-bg: #111135;
+  --primary-color: #efeff0;
+  --secondary-color: #3498db;
+  --hover-color: #5dade2;
+  --button-bg: #6c63ff;
+  --button-hover: #5751d1;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(120deg, #132257, #002244, #16171d);
+  color: var(--primary-color);
+  background-size: 300% 300%;
+  line-height: 1.5;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: backgroundAnimation 10s ease infinite;
+}
+
+@keyframes backgroundAnimation {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+h1, h2, h3 {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  transition: color 0.3s;
+}
+a:hover {
+  color: var(--hover-color);
+}
+
+/* Header */
+header {
+  background: var(--primary-bg);
+  padding: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+header .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header img.logo {
+  height: 69px;
+}
+
+/* Navigation */
+nav ul.menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 20px;
+}
+nav ul.menu li a {
+  padding: 10px 15px;
+  background: var(--secondary-bg);
+  color: var(--primary-color);
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+nav ul.menu li a:hover {
+  background: var(--hover-color);
+  transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+  background: #010409;
+  padding: 20px;
+  color: #ccc;
+  text-align: center;
+}
+footer a {
+  color: var(--secondary-color);
+}
+footer a:hover {
+  color: var(--hover-color);
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: var(--button-hover);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  nav ul.menu {
+    flex-direction: column;
+  }
+  nav ul.menu li a {
+    margin: 10px 0;
+  }
+}

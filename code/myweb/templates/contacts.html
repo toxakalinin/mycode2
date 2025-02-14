@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts | Kalinux Development</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="container" id="app">
+    <header>
+        <div>
+            <h2><img src="{{ url_for('static', filename='images/logotip.png') }}" alt="Kalinux Logo" class="preloader-logo"></h2>
+        </div>
+        <div class="header-container">
+          <h1>Home | Kalinux Development</h1>
+        </div>   
+    </header>
+ 
+    <main>
+        <section class="projects">
+        <div class="container">
+            <div class="projects-grid">
+                <div class="project-card">  
+                     <h2>Свяжитесь со мной</h2>
+                           <p>Оставьте свои контактные данные или напишите мне напрямую:</p>
+                <p>Email: <a href="mailto:mailto@kalinin.org.ru">mailto@kalinin.org.ru</a></p>
+                <p>Telegram: <a href="https://t.me/nobodyknovvz" target="_blank">@nobodyknovvz</a></p>
+                </div>
+            </div>
+
+            <div class="projects-grid">
+              <div class="project-card">
+                   <h3>Форма обратной связи</h3>
+                        <form action="#" method="post" class="contact-form">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Отправить</button>
+            </form>
+               </div>
+              </div>
+            </div>
+        </div>    
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Kalinux Development </p>
+      </footer> 
+   <div class="bottom-menu">
+          <a href="#" class="bottom-menu-item" id="menu-button">
+             <img src="/static/images/5.png" alt="Menu Icon">
+    </a>
+   </div>
+  <div class="popup-overlay" id="popup-overlay">
+    <div class="popup-menu" id="popup-menu">
+      <button id="close-button" class="close-button">Закрыть</button> 
+      <ul>
+        <li><a href="/home">На Главную</a></li>
+         <li><a href="/about">О странице</a></li>
+         <li><a href="/social">Социальные сети</a></li>
+         <li><a href="/contactus">Контакты</a></li>
+         <li><a href="/projects">Проекты</a></li>
+       </ul>
+    </div>
+  <script>
+  const menuButton = document.getElementById('menu-button');
+  const menuOverlay = document.getElementById('popup-overlay');
+  const closeButton = document.getElementById('close-button');
+  
+  // Open the menu
+  menuButton.addEventListener('click', () => {
+    menuOverlay.classList.add('active'); // Show the popup
+  });
+  
+  // Close the menu when clicking the "Close" button
+  closeButton.addEventListener('click', () => {
+    menuOverlay.classList.remove('active'); // Hide the popup
+  });
+  
+  // Close the menu when clicking outside the popup
+  menuOverlay.addEventListener('click', (e) => {
+    if (e.target === menuOverlay) {
+      menuOverlay.classList.remove('active'); // Hide the popup
+    }
+  });
+  </script>
+  </div>
+  </body>
+  </html>

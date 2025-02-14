@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn wsgi-server to secure your server
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/kalinuxsec
+Environment="PATH=/var/www/kalinuxsec/kalisecenv/bin"
+ExecStart=/var/www/kalinuxsec/kalisecenv/bin/gunicorn -k eventlet --workers 10 --bind unix:kalidev.sock -m 007 app:app
+
+[Install]

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Config Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav class="glass-nav">
+            <div class="logo">SecureConfig</div>
+            <a href="{{ url_for('login') }}" class="login-btn">Login</a>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-content">
+                <h1 class="gradient-text">Secure Configuration Management</h1>
+                <p>Access your deployment configurations securely through Telegram-based authentication</p>
+                <a href="{{ url_for('login') }}" class="cta-btn">Get Started</a>
+            </div>
+            <div class="hero-blur"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

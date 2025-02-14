@@ -1,0 +1,11 @@
+2025-01-28 11:25:14,941 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7760023439:AAHdHYAsjIZs7o0ORc8T90uVDfGnX-EGFOI/getMe "HTTP/1.1 200 OK"
+2025-01-28 11:25:15,031 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7760023439:AAHdHYAsjIZs7o0ORc8T90uVDfGnX-EGFOI/deleteWebhook "HTTP/1.1 200 OK"
+2025-01-28 11:25:15,034 - telegram.ext.Application - INFO - Application started
+2025-01-28 11:25:25,315 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7760023439:AAHdHYAsjIZs7o0ORc8T90uVDfGnX-EGFOI/getUpdates "HTTP/1.1 200 OK"
+2025-01-28 11:25:35,410 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7760023439:AAHdHYAsjIZs7o0ORc8T90uVDfGnX-EGFOI/getUpdates "HTTP/1.1 200 OK"
+2025-01-28 11:25:45,550 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7760023439:AAHdHYAsjIZs7o0ORc8T90uVDfGnX-EGFOI/getUpdates "HTTP/1.1 200 OK"
+2025-01-28 11:25:49,175 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7760023439:AAHdHYAsjIZs7o0ORc8T90uVDfGnX-EGFOI/getUpdates "HTTP/1.1 200 OK"
+2025-01-28 11:25:49,470 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7760023439:AAHdHYAsjIZs7o0ORc8T90uVDfGnX-EGFOI/sendMessage "HTTP/1.1 200 OK"
+2025-01-28 11:25:58,536 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7760023439:AAHdHYAsjIZs7o0ORc8T90uVDfGnX-EGFOI/getUpdates "HTTP/1.1 200 OK"
+2025-01-28 11:25:58,538 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-01-28 11:25:58,538 - telegram.ext.Application - INFO - Application.stop() complete

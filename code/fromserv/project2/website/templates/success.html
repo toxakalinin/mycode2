@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Успешный вход</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Вход выполнен успешно!</h1>
+        <p>Теперь вы можете скачать файлы:</p>
+        <a href="/static/files/config1.conf" class="btn">Скачать файл 1</a>
+        <a href="/static/files/config2.conf" class="btn">Скачать файл 2</a>
+    </div>
+</body>
+</html>

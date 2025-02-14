@@ -1,0 +1,6 @@
+flask
+gunicorn
+python-telegram-bot
+python-dotenv
+asyncio
+anyio

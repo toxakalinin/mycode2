@@ -1,0 +1,7 @@
+anyio
+httpcore
+httpx
+python-dotenv
+python-telegram-bot
+selenium
+urllib3

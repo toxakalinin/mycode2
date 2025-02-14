@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление сервером</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/tools.css">
+    <link rel="stylesheet" href="/static/css/styles.css">    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Управление сервером</h1>
+        <p>Доступ ко всем инструментам и мониторингу.</p>
+    </header>
+
+    <main>
+        <section id="tools">
+            <h2>Быстрые инструменты</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Меню инструментов</h3>
+                    <p>Все настройки в одном месте.</p>
+                    <a href="/secure/toolsmenu.html" class="btn">Перейти</a>
+                </div>
+            <div class="card">
+                    <h3> Сканирование</h3>
+                    <p>Perform network and vulnerability scans.</p>
+                    <a href="/secure/scantools.html" class="btn">Go</a>
+            </div>
+            <div class="card">
+                    <h3>Веб-фичи</h3>
+                    <p>Web-based utilities for testing and debugging.</p>
+                    <a href="/secure/webtools.html" class="btn">Go</a>
+            </div>
+            <div class="card">
+                    <h3>FirewallBuilder</h3>
+                    <p>Design and deploy custom firewall rules.</p>
+                    <a href="/secure/firewallbuilder.html" class="btn">Go</a>
+            </div>
+            <div class="card">
+                    <h3>Integration via telegram</h3>
+                    <p>Design and deploy custom firewall rules.</p>
+                    <a href="/secure/botmenu.html" class="btn">Go</a>
+            </div>
+        </section>
+
+        <!-- Logs and Stats Section -->
+        <section id="logs-stats">
+            <h2>Logs and Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <h3>Total Firewall Rules</h3>
+                    <p id="rule-count">Fetching...</p>
+                </div>
+                <div class="stat">
+                    <h3>Total Logs</h3>
+                    <p id="log-count">Fetching...</p>
+                </div>
+                <div class="stat">
+                    <h3>Server Uptime</h3>
+                    <p id="server-uptime">Fetching...</p>
+                </div>
+                <div class="stat">
+                    <h3>Active Users</h3>
+                    <p id="active-users">Fetching...</p>
+                </div>
+            </div>
+            <table id="logs-table">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Timestamp</th>
+                        <th onclick="sortTable(1)">IP Address</th>
+                        <th onclick="sortTable(2)">Action</th>
+                        <th onclick="sortTable(3)">User Agent</th>
+                        <th onclick="sortTable(4)">Geo Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamically populated rows -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Admin Dashboard. Все права защищены.</p>
+    </footer>
+    <script src="/static/js/dashpanelda.js"></script>
+ <div class="bottom-menu">
+    <a href="#" class="bottom-menu-item" id="menu-button">
+    <img src="/static/images/5.png" alt="Menu Icon">
+  </a>
+ </div>
+<div class="popup-overlay" id="popup-overlay">
+  <div class="popup-menu" id="popup-menu">
+    <button id="close-button" class="close-button">Закрыть</button> 
+    <ul>
+       <li><a href="/secure/toolsmenu.html">Инструменты</a></li>
+       <li><a href="/secure/scantools.html">Сканировать...</a></li>
+       <li><a href="/secure/webtools.html">Веб-функции</a></li>
+       <li><a href="/secure/clientside4.html">Статистика</a></li>
+       <li><a href="/secure/firewallbuilder.html/#add-rule-form">Добавить правило</a></li>
+       <li><a href="/">Выход</a></li>
+    </ul>
+  </div>
+<script>
+const menuButton = document.getElementById('menu-button');
+const menuOverlay = document.getElementById('popup-overlay');
+const closeButton = document.getElementById('close-button');
+
+// Open the menu
+menuButton.addEventListener('click', () => {
+  menuOverlay.classList.add('active'); // Show the popup
+});
+
+// Close the menu when clicking the "Close" button
+closeButton.addEventListener('click', () => {
+  menuOverlay.classList.remove('active'); // Hide the popup
+});
+
+// Close the menu when clicking outside the popup
+menuOverlay.addEventListener('click', (e) => {
+  if (e.target === menuOverlay) {
+    menuOverlay.classList.remove('active'); // Hide the popup
+  }
+});
+</script>
+</div>
+</body>
+</html>

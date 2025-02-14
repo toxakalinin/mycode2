@@ -1,0 +1,29 @@
+async def handle_login(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    try:
+        async with Session() as db:
+            user = await db.get(AuthorizedUser, update.effective_user.id)
+
+            if user:
+                otp = secrets.token_urlsafe(6)[:8].upper()
+                expires_at = datetime.now() + timedelta(minutes=10)
+
+                otp_session = OTPSession(
+                    username=user.username,
+                    otp=otp,
+                    expires_at=expires_at
+                )
+                db.add(otp_session)
+                await db.commit()
+
+                await update.message.reply_text(
+                    f"🔑 Temporary credentials:\n"
+                    f"👤 Username: {user.username}\n"
+                    f"🔢 OTP: {otp}\n"
+                    f"⏳ Valid for 10 minutes"
+                )
+            else:
+                await update.message.reply_text("❌ Authorization denied")
+
+    except Exception as e:
+        print(f"Error in handle_login: {e}")
+        await update.message.reply_text("⚠️ Service temporarily unavailable")

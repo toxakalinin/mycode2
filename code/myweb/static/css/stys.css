@@ -1,0 +1,367 @@
+/* Основной фон и анимация */
+body {
+    font-family: 'Roboto', monospace;
+    background: linear-gradient(120deg, #000103, #131339, #00001a);
+    background-size: 300% 300%;
+    animation: backgroundAnimation 10s ease infinite;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+ 
+    50% {
+        background-position: 100% 50%;
+    }
+ 
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Header */
+header {
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+
+.logo {
+    width: 80px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+}
+
+.content.animated-content {
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+ 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Меню */
+nav ul.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 20px 0;
+}
+
+nav ul.menu li {
+    flex: 1;
+}
+
+nav ul.menu li a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    background-color: #111135;
+    transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s;
+    display: block;
+    text-align: center;
+}
+
+nav ul.menu li a:hover {
+    background-color: #3d5e99;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Основной контент */
+.content {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Приветственное сообщение */
+.content h2 {
+    font-size: 6vw;
+    /* Изменено на зависимость от ширины экрана */
+    color: #ffffff;
+    margin-bottom: 20px;
+    white-space: normal;
+    /* Чтобы текст переносился */
+    word-wrap: break-word;
+}
+
+/* Нижнее меню */
+footer .bottom-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    /* Добавление отступов */
+}
+
+footer .menu-item {
+    padding: 10px 20px;
+    /* Увеличение зоны клика для удобства */
+    color: white;
+    text-decoration: none;
+}
+
+.content p {
+    font-size: 1.2em;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+/* Кнопки */
+button {
+    background-color: #131339;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #0E294B;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    color: #e0e0e0;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer .menu-item img {
+    width: 15px;
+    height: 7px;
+    margin-bottom: 5px;
+}
+
+footer .menu-item span {
+    display: block;
+    font-size: 12px;
+}
+
+/* Адаптивная верстка */
+@media (max-width: 1080px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    nav ul.menu li {
+        flex: 1 1 45%;
+    }
+
+    button {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    nav ul.menu li {
+        flex: 1 1 90%;
+    }
+
+    button {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+}
+nav ul.menu li a {
+        padding: 10px 15px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+}
+/* Адаптивная верстка */
+@media (max-width: 1080px) {
+    h1 {
+        font-size: 2em;
+    }
+    
+    nav ul.menu li {
+        flex: 1 1 45%;
+    }
+
+    button {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    nav ul.menu li {
+        flex: 1 1 90%;
+    }
+
+    button {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    nav ul.menu li a {
+        padding: 10px 15px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+}
+
+/* Рамка для заголовка */
+.header-border {
+    border: 1px solid #00ffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Рамка для нижнего меню */
+.footer-border {
+    border: 1px solid #00ffff;
+    border-radius: 8px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Новое меню */
+.additional-menu {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #15103a;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.additional-menu ul.menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.additional-menu ul.menu li {
+    flex: 1;
+}
+
+.additional-menu ul.menu li a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px 20px;
+    background-color: #3a3a3a;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+    display: block;
+    text-align: center;
+}
+
+.additional-menu ul.menu li a:hover {
+    background-color: #5a5a5a;
+    transform: translateY(-5px);
+}
+
+/* Кнопка возврата наверх */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #131339;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top:hover {
+    background-color: #4CAF50;
+    transform: translateY(-5px);
+}
+
+/* Анимация при прокрутке */
+@keyframes headerScrollAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header-border {
+    animation: headerScrollAnimation 1.5s ease-out;
+}

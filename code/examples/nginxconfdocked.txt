@@ -1,0 +1,37 @@
+ухуйхуй server {
+	listen [::]:443 ssl;
+	listen 443 ssl;
+	server_name 77-222-38-219.swtest.ru;
+    ssl_certificate /etc/letsencrypt/live/77-222-38-219.swtest.ru/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/77-222-38-219.swtest.ru/privkey.pem; # managed by Certbot
+	ssl_dhparam /etc/ssl/nginx-dhparam.pem;
+
+	location / {
+		proxy_pass http://127.0.0.1:51821;
+		proxy_http_version 1.1;
+		proxy_read_timeout 300;
+		proxy_buffering off;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "upgrade";
+		proxy_set_header Host $http_host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Real-PORT $remote_port;
+		proxy_set_header X-Forwarded-Proto https;
+		proxy_set_header X-Forwarded-Port 443;
+		proxy_set_header X-Forwarded-For $remote_addr;
+	}
+
+}
+
+server {
+	if ($host = 77-222-38-219.swtest.ru) {
+		return 301 https://$host$request_uri;
+	}
+
+	listen [::]:80;
+	listen 80;
+
+	server_name 77-222-38-219.swtest.ru;
+
+
+}
